@@ -12,7 +12,8 @@
 # CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
 FROM httpd:2.4
-COPY ./public-html/ /usr/local/apache2/htdocs/
+WORKDIR /usr/local/apache2/htdocs/
+COPY ./public-html/ ./
 EXPOSE 80
 RUN echo "ServerName 52.90.15.142" >> /etc/apache2/apache2.conf
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
