@@ -1,7 +1,7 @@
 pipeline {
      environment {
     imagename = "apacheimage"
-  }
+     }
     agent any
     options { timestamps () }
     stages {
@@ -23,7 +23,7 @@ pipeline {
          stage('Building image') {
               steps{
                    dockerImage = docker.build(imagename:${BUILD_NUMBER}) . 
-                        }
+              }
                     
          }
     }
