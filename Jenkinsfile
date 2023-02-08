@@ -15,6 +15,11 @@ pipeline {
                 sh 'git --version'
             }
         }
+          stage('Code checkout') {
+      steps {
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '23fdc10b-169b-47f7-b512-1e74bb463b0c', url: 'https://github.com/SharanyaJayaram/Task.git']])
+      }
+    }
         stage('Docker build') {
       steps{
         script {
