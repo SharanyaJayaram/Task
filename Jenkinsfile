@@ -1,6 +1,7 @@
 pipeline {
      environment {
     imagename = "apacheimage"
+    dockerImage = ''
      }
     agent any
     options { timestamps () }
