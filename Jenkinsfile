@@ -1,4 +1,7 @@
 pipeline {
+     environment {
+    imagename = "apacheimage"
+  }
     agent any
     options { timestamps () }
     stages {
@@ -12,6 +15,14 @@ pipeline {
                 sh 'git --version'
             }
         }
+        stage('Docker build') {
+      steps{
+        script {
+          sh 'docker build -t imagename:${BUILD_NUMBER} . '
+//           image = docker.build(<image_name_1>:<tag_1>)
+        }
+      }
+    }
         
     }
 }
