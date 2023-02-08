@@ -24,7 +24,8 @@ pipeline {
          stage('Building image') {
               steps{
                    script {
-                        sh 'docker build -t apacheimage:${BUILD_NUMBER} . '
+                        sh 'docker build -t apache:${BUILD_NUMBER} . '
+                        sh 'docker images'
                    }
                   
               }
