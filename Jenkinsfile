@@ -19,9 +19,8 @@ pipeline {
       steps{
         script {
           dockerImage = docker.build(imagename:${BUILD_NUMBER}) . 
-//           image = docker.build(<image_name_1>:<tag_1>)
-}
-}
-}
-}
+               }
+      }
+        }
+    }
 }
