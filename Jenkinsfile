@@ -8,7 +8,7 @@ pipeline {
         timestamps ()
         timeout(time: 20, unit: 'SECONDS')   
         skipDefaultCheckout true
-        buildDiscarder(logRotator(daysToKeepStr: '10'))
+        buildDiscarder(logRotator(numToKeepStr: '10'))
     }
     stages {
         stage('Display Docker version') {
@@ -35,6 +35,7 @@ pipeline {
                         docker images
                         docker image inspect httpd:2.4
                         docker run -d -t --name apachecontainerr httpd:2.4
+                        docker inspect container apachecontainerr
                         docker ps -aq | xargs docker stop '''
                           
                        }
