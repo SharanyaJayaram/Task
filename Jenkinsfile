@@ -23,12 +23,13 @@ pipeline {
         }
          stage('Building image') {
               steps{
+                  retry(2)
                    script {
-                        sh 'docker build -t imageapache:${BUILD_NUMBER} .'
+                        sh 'docker build -t imageapache:${BUILD_NUMBER} '
                         sh 'docker images'
                    }
                   
-              }
+              }.timeout(time: 3, unit: 'MINUTES')
                     
          }
     }
