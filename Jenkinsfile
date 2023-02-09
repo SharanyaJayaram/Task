@@ -6,7 +6,7 @@ pipeline {
     agent any
     options { 
         timestamps ()
-        timeout(time: 5, unit: 'MINUTES')   
+        timeout(time: 5, unit: 'SECONDS')   
     }
     stages {
         stage('Display Docker version') {
