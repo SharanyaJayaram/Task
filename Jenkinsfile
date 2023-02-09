@@ -27,11 +27,11 @@ pipeline {
                        retry(2){
                         sh 'docker build -t imageapache:${BUILD_NUMBER} '
                         sh 'docker images'
-                       }.timeout(time: 3, unit: 'MINUTES')
+                       }
                    }
                   
               }
                     
          }
-    }
+    }.timeout(time: 3, unit: 'MINUTES')
 }
