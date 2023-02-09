@@ -7,6 +7,8 @@ pipeline {
     options { 
         timestamps ()
         timeout(time: 2, unit: 'SECONDS')   
+        skipDefaultCheckout true
+        buildDiscarder(logRotator(daysToKeepStr: '10'))
     }
     stages {
         stage('Display Docker version') {
@@ -28,8 +30,13 @@ pipeline {
               steps{
                    script {
                        retry(2){
-                        sh 'docker build -t imageapache:${BUILD_NUMBER} '
-                        sh 'docker images'
+                        sh '''docker image prune
+                        docker build -t imageapache:${BUILD_NUMBER} 
+                        docker images'
+                        docker image inspect httpd:2.4
+                        docker run -d -t --name container1 httpd:2.4
+                        docker stop container -a'''
+                          
                        }
                    }
                   
