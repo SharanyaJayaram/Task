@@ -1,8 +1,8 @@
 pipeline {
-//      environment {
-//     imagename = "sharanyajayaram/task"
+     environment {
+    imagename = "sharanyajayaram/task"
 //     dockerImage = ''
-//      }
+     }
     agent any
     options { timestamps () }
     stages {
@@ -24,7 +24,7 @@ pipeline {
          stage('Building image') {
               steps{
                    script {
-                        sh 'docker build -t apache:${BUILD_NUMBER} . '
+                        docker.build imagename:${BUILD_NUMBER} 
                         sh 'docker images'
                    }
                   
