@@ -34,4 +34,4 @@ pipeline {
                     
          }
     }
-}.timeout(time: 3, unit: 'MINUTES')
+}.timeout(time: 1, unit: 'HOURS')
