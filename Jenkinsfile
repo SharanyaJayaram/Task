@@ -30,7 +30,7 @@ pipeline {
               steps{
                    script {
                        retry(2){
-                        sh '''docker image prune -y
+                        sh '''docker image prune -a
                         docker build -t imageapache:${BUILD_NUMBER} .
                         docker images'
                         docker image inspect httpd:2.4
