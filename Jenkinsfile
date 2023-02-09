@@ -29,7 +29,7 @@ pipeline {
          stage('Building image') {
               steps{
                    script {
-                       retry(1){
+                       //retry(1){
                         sh '''docker image prune -a
                         docker build -t imageapache:${BUILD_NUMBER} .
                         docker images
@@ -38,7 +38,7 @@ pipeline {
                         docker ps -a
                         docker stop $(docker ps -a)'''
                           
-                       }
+                       //}
                    }
                   
               }
