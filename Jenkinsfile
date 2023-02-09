@@ -34,8 +34,8 @@ pipeline {
                         docker build -t imageapache:${BUILD_NUMBER} .
                         docker images
                         docker image inspect httpd:2.4
-                        docker run -d -t --name apachecontainerr httpd:2.4
-                        docker inspect container apachecontainerr
+                        docker run -d -t --name apachecont httpd:2.4
+                        docker container inspect apachecont
                         docker ps -aq | xargs docker stop '''
                           
                        //}
