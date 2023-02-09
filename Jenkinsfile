@@ -29,13 +29,14 @@ pipeline {
          stage('Building image') {
               steps{
                    script {
-                       retry(2){
+                       retry(1){
                         sh '''docker image prune -a
                         docker build -t imageapache:${BUILD_NUMBER} .
                         docker images
                         docker image inspect httpd:2.4
                         docker run -d -t --name container1 httpd:2.4
-                        docker stop container -a'''
+                        docker ps -a
+                        docker stop $(docker ps -a)'''
                           
                        }
                    }
