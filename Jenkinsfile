@@ -6,7 +6,7 @@ pipeline {
     agent any
     options { 
         timestamps ()
-        timeout(time: 5, unit: 'SECONDS')   
+        timeout(time: 2, unit: 'SECONDS')   
     }
     stages {
         stage('Display Docker version') {
@@ -27,7 +27,7 @@ pipeline {
          stage('Building image') {
               steps{
                    script {
-                       retry(3){
+                       retry(2){
                         sh 'docker build -t imageapache:${BUILD_NUMBER} '
                         sh 'docker images'
                        }
