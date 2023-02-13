@@ -8,7 +8,7 @@ pipeline {
         timestamps ()
         timeout(time: 20, unit: 'SECONDS')   
         skipDefaultCheckout true
-        buildDiscarder(logRotator(numToKeepStr: '10'))
+        buildDiscarder(logRotator(numToKeepStr: '2'))
     }
     stages {
         stage('Display Docker version') {
