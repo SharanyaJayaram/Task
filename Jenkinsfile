@@ -44,15 +44,15 @@ pipeline {
               }
                     
          }
-        stage('Backup') {
-            steps {
-                dir ('jenkins_backup') {
-                  sh """
-                    chmod +x ./jenkins-backup.sh
-                    ./jenkins-backup.sh ${JENKINS_HOME} /tmp/${env.BACKUP_REPO_NAME}/${BACKUP_PREFIX_NAME}_${BACKUP_DATETIME}.tar.gz
-                  """
-                }
-            }
-        }
+//         stage('Backup') {
+//             steps {
+//                 dir ('jenkins_backup') {
+//                   sh """
+//                     chmod +x ./jenkins-backup.sh
+//                     ./jenkins-backup.sh ${JENKINS_HOME} /tmp/${env.BACKUP_REPO_NAME}/${BACKUP_PREFIX_NAME}_${BACKUP_DATETIME}.tar.gz
+//                   """
+//                 }
+//             }
+//         }
     }
 }
